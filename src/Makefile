@@ -35,7 +35,7 @@ CLIBFILE=C:\TC20\LIB\C$(MODEL).LIB
 INCLUDEDIR=C:\TC20\INCLUDE
 STARTUPDIR=C:\TC20\STARTUP
 
-OBJS=c0$(MODEL).obj main.obj game1.obj game2.obj
+OBJS=c0$(MODEL).obj main.obj game1.obj game2.obj lowlevel.obj
 OUTEXE=cosmore$(EPISODE).exe
 
 all: $(OUTEXE)
@@ -48,7 +48,7 @@ clean:
 $(OUTEXE): $(OBJS)
 	tlink /c /d /s $(OBJS), $<, , $(CLIBFILE)
 
-c0$(MODEL).obj: c0.asm lowlevel.asm
+c0$(MODEL).obj: c0.asm #lowlevel.asm
 	# $* instead of $< avoids weird overwrite misbehavior if the target exists
 	tasm /d__$(LONGMODEL)__ /i$(STARTUPDIR) c0.asm, $*
 

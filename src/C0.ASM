@@ -669,7 +669,7 @@ _STACK  ENDS
 ENDIF
 
 	; COSMORE: This is the sole change here. All other lines are untouched.
-	INCLUDE lowlevel.asm
+	;INCLUDE lowlevel.asm
 
         END     STARTX
 
